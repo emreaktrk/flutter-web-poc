@@ -7,6 +7,7 @@ class Menu extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       child: SingleChildScrollView(
+        primary: false,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
