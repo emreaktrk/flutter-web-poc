@@ -14,13 +14,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Flutter Demo',
+      title: 'Admin Panel',
+      debugShowCheckedModeBanner: false,
       scrollBehavior: WebDragScrollBehavior(),
       getPages: AppPages.routes,
       theme: ThemeData(
         appBarTheme: const AppBarTheme(elevation: 0, color: Colors.transparent, iconTheme: IconThemeData(color: Colors.black)),
         textTheme: Theme.of(context).textTheme.apply(displayColor: Colors.black),
         drawerTheme: const DrawerThemeData(backgroundColor: Colors.black),
+        navigationRailTheme: const NavigationRailThemeData(
+          backgroundColor: Colors.black,
+          unselectedIconTheme: IconThemeData(color: Colors.grey),
+          selectedIconTheme: IconThemeData(color: Colors.white),
+        ),
         listTileTheme: const ListTileThemeData(
           textColor: Colors.grey,
           iconColor: Colors.grey,

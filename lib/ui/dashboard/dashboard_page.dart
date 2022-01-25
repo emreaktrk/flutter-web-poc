@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_web_poc/ui/dashboard/overview/overview_page.dart';
 import 'package:flutter_web_poc/ui/menu.dart';
+import 'package:flutter_web_poc/ui/widgets/rail.dart';
 import 'package:get/get.dart';
 
 class DashboardPage extends GetResponsiveView {
@@ -22,11 +23,17 @@ class DashboardPage extends GetResponsiveView {
   @override
   Widget tablet() {
     return Scaffold(
-      drawer: const Menu(),
-      appBar: AppBar(),
-      body: Stack(
+      body: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          OverviewPage(),
+          const Rail(),
+          Expanded(
+            child: Stack(
+              children: [
+                OverviewPage(),
+              ],
+            ),
+          ),
         ],
       ),
     );

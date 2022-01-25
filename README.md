@@ -1,16 +1,48 @@
-# flutter_web_poc
+## Mevcut Projeye Web Desteği Ekleme
+Proje'nin kök dizininde `flutter create --platforms=web,macos` çalıştırabilirsiniz.
 
-A Web POC
+## Adaptive ve Responsive UI
+- Adaptive
+- Responsive
 
-## Getting Started
+## Cross-Origin Resource Sharing (CORS)
+Bir web sayfası üzerindeki bazı kaynakların (örneğin font dosyaları), kaynağın sunulduğu alan adının dışındaki bir alan adından istenebilmesine izin veren bir mekanizmadır.
 
-This project is a starting point for a Flutter application.
+- CORS güvenlik ile ilgili değildir, içerik sahipliğinin korunması ile ilgilidir. 
+- Saldırganların Aynı Kök Politikası'na (SOP) uyması beklenmemelidir. 
+- CORS pek çok tarayıcı üzerinden kolayca devre dışı bırakılabilmektedir.
+- Header'a `Access-Control-Allow-Origin` eklenmelidir.
+- Kapatmaya çalışmayalım. Kullanıcılarınızın bu özelliği browser'ında kapatmasını beklememelisiniz.
 
-A few resources to get you started if this is your first Flutter project:
+## GetX
+- Hızlı ve güçlü bir çözümdür. Yüksek performanslı state management, dependency injection ve route management işlerinizi hızlı ve kolayca yapmamızı sağlar.
+- Productivity'i artırtır.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Export
+- `flutter build web` komutu ile export alınabilir.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```
+/build/web
+  assets
+    AssetManifest.json
+    FontManifest.json
+    NOTICES
+    fonts
+      MaterialIcons-Regular.ttf
+      <other font files>
+    <image files>
+  index.html
+  main.dart.js
+  main.dart.js.map
+```
+- `<iframe src="URL"></iframe>` kullanılarak embed edilebilir.
+- Progressive Web App 1.20 versiyonun itibaren var ama hala geliştirme sürecindedir.
+
+## Showcase
+- *[Gallery](https://gallery.flutter.dev/#/)*
+- *[Dice](https://z.flutter.gallery/examples/#/dice)*
+- *[Plasma](https://flutterplasma.dev/e)*
+- *[Folio](https://flutter.gskinner.com/folio/#g-download)*
+- *[Charts](https://flutter.github.io/samples/web/charts/#/)*
+- *[Dataviz](https://flutter.github.io/samples/web/github_dataviz/)*
+- *[Particle Background](https://flutter.github.io/samples/web/particle_background/#/)*
