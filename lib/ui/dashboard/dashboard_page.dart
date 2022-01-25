@@ -19,7 +19,6 @@ class DashboardPage extends GetResponsiveView {
     );
   }
 
-
   @override
   Widget tablet() {
     return Scaffold(

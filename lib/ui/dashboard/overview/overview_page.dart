@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_poc/ui/dashboard/overview/overview_controller.dart';
 import 'package:flutter_web_poc/ui/widgets/actions_bar.dart';
 import 'package:flutter_web_poc/ui/widgets/catchword.dart';
 import 'package:flutter_web_poc/ui/widgets/headline.dart';
@@ -11,7 +12,7 @@ import 'package:flutter_web_poc/ui/widgets/task_chart.dart';
 import 'package:flutter_web_poc/ui/widgets/task_progress.dart';
 import 'package:get/get.dart';
 
-class OverviewPage extends GetResponsiveView {
+class OverviewPage extends GetResponsiveView<OverviewController> {
   OverviewPage({Key? key}) : super(key: key);
 
   @override
@@ -272,17 +273,28 @@ class OverviewPage extends GetResponsiveView {
                   const SizedBox(height: 16),
                   Card(
                     child: Row(
-                      children: const [
-                        Expanded(
+                      children: [
+                        const Expanded(
                           child: TaskChart(
                             margin: EdgeInsets.all(16),
                           ),
                         ),
-                        TaskProgress(
-                          label: "Progress files",
-                          percent: .39,
-                          margin: EdgeInsets.all(16),
-                        ),
+                        Obx(() {
+                          if (controller.taskProgress.value == null) {
+                            return Container(
+                              width: 144,
+                              height: 180,
+                              alignment: Alignment.center,
+                              child: const CircularProgressIndicator(),
+                            );
+                          } else {
+                            return TaskProgress(
+                              label: "Progress files",
+                              percent: controller.taskProgress.value ?? 0.0,
+                              margin: const EdgeInsets.all(16),
+                            );
+                          }
+                        }),
                       ],
                     ),
                   ),
@@ -291,7 +303,7 @@ class OverviewPage extends GetResponsiveView {
             ),
           ),
         ),
-        ActionsBar(),
+        const ActionsBar(),
       ],
     );
   }

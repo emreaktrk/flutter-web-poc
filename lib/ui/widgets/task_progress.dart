@@ -24,7 +24,7 @@ class TaskProgress extends StatelessWidget {
         children: [
           CircularPercentIndicator(
             radius: 56,
-            percent: .39,
+            percent: percent,
             lineWidth: 10,
             backgroundColor: Colors.black,
             progressColor: primaryColor,
