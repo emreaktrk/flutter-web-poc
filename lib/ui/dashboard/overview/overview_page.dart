@@ -69,20 +69,40 @@ class OverviewPage extends GetResponsiveView<OverviewController> {
                     Ranger(from: "Aug 7", to: "Aug 14"),
                   ],
                 ),
-                const Card(
-                  child: SizedBox(
+                Card(
+                  child: Container(
                     width: double.infinity,
-                    child: TaskChart(
-                      margin: EdgeInsets.all(16),
-                    ),
+                    height: 180,
+                    alignment: Alignment.center,
+                    child: Obx(() {
+                      if (controller.series.value == null) {
+                        return const CircularProgressIndicator();
+                      } else {
+                        return TaskChart(
+                          margin: const EdgeInsets.all(16),
+                          series: controller.series.value!,
+                        );
+                      }
+                    }),
                   ),
                 ),
-                const Card(
-                  child: TaskProgress(
-                    label: "Progress files",
-                    percent: .39,
-                    margin: EdgeInsets.all(16),
-                  ),
+                Card(
+                  child: Obx(() {
+                    if (controller.taskProgress.value == null) {
+                      return Container(
+                        width: 144,
+                        height: 180,
+                        alignment: Alignment.center,
+                        child: const CircularProgressIndicator(),
+                      );
+                    } else {
+                      return TaskProgress(
+                        label: "Progress files",
+                        percent: controller.taskProgress.value ?? 0.0,
+                        margin: const EdgeInsets.all(16),
+                      );
+                    }
+                  }),
                 ),
               ],
             ),
@@ -166,17 +186,37 @@ class OverviewPage extends GetResponsiveView<OverviewController> {
             ),
             Card(
               child: Row(
-                children: const [
+                children: [
                   Expanded(
-                    child: TaskChart(
-                      margin: EdgeInsets.all(16),
-                    ),
+                    child: Obx(() {
+                      if (controller.series.value == null) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      } else {
+                        return TaskChart(
+                          margin: const EdgeInsets.all(16),
+                          series: controller.series.value!,
+                        );
+                      }
+                    }),
                   ),
-                  TaskProgress(
-                    label: "Progress files",
-                    percent: .39,
-                    margin: EdgeInsets.all(16),
-                  ),
+                  Obx(() {
+                    if (controller.taskProgress.value == null) {
+                      return Container(
+                        width: 144,
+                        height: 180,
+                        alignment: Alignment.center,
+                        child: const CircularProgressIndicator(),
+                      );
+                    } else {
+                      return TaskProgress(
+                        label: "Progress files",
+                        percent: controller.taskProgress.value ?? 0.0,
+                        margin: const EdgeInsets.all(16),
+                      );
+                    }
+                  }),
                 ],
               ),
             ),
@@ -274,10 +314,19 @@ class OverviewPage extends GetResponsiveView<OverviewController> {
                   Card(
                     child: Row(
                       children: [
-                        const Expanded(
-                          child: TaskChart(
-                            margin: EdgeInsets.all(16),
-                          ),
+                        Expanded(
+                          child: Obx(() {
+                            if (controller.series.value == null) {
+                              return const Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            } else {
+                              return TaskChart(
+                                margin: const EdgeInsets.all(16),
+                                series: controller.series.value!,
+                              );
+                            }
+                          }),
                         ),
                         Obx(() {
                           if (controller.taskProgress.value == null) {

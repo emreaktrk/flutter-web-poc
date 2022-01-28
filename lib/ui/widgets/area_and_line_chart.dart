@@ -14,11 +14,16 @@ class AreaAndLineChart extends StatelessWidget {
     this.animate = true,
   }) : super(key: key);
 
-  /// Creates a [LineChart] with sample data and no transition.
   factory AreaAndLineChart.withSampleData() {
     return AreaAndLineChart(
       _createSampleData(),
-      // Disable animations for image tests.
+      animate: false,
+    );
+  }
+
+  factory AreaAndLineChart.withData(Series<dynamic, num> series) {
+    return AreaAndLineChart(
+      [series..setAttribute(rendererIdKey, 'hours')],
       animate: false,
     );
   }

@@ -4,10 +4,12 @@ import 'package:flutter_web_poc/ui/widgets/area_and_line_chart.dart';
 
 class TaskChart extends StatelessWidget {
   final EdgeInsets margin;
+  final Series<dynamic, num> series;
 
   const TaskChart({
     Key? key,
     this.margin = EdgeInsets.zero,
+    required this.series,
   }) : super(key: key);
 
   @override
@@ -15,7 +17,7 @@ class TaskChart extends StatelessWidget {
     return Container(
       height: 180,
       margin: margin,
-      child: AreaAndLineChart.withSampleData(),
+      child: AreaAndLineChart.withData(series),
     );
   }
 }

@@ -1,4 +1,4 @@
-import 'package:flutter_web_poc/data/api/repository.dart';
+import 'package:flutter_web_poc/data/repository.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class TaskRepository extends Repository {

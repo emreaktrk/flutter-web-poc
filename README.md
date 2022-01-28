@@ -18,6 +18,34 @@ Bir web sayfası üzerindeki bazı kaynakların (örneğin font dosyaları), kay
 - Hızlı ve güçlü bir çözümdür. Yüksek performanslı state management, dependency injection ve route management işlerinizi hızlı ve kolayca yapmamızı sağlar.
 - Productivity'i artırtır.
 
+## PWA
+- Progressive web app desteği olduğu için offline olarak da kullanılabilir ama PWA ile ilgili güvenlik kurallarına dikkat etmek gerekiyor.
+
+## RTL
+- Right to Left text desteği bulunmaktadır ama henüz tamamlanmamıştır. 
+
+## Scrolling Behaviours
+- Flutter 2.0 ile Scrollbar desteği gelmiştir ama trackpad ileride gelicektir.
+
+## Performance
+- Loading süresinin kısaltılması için geliştirmeler yapılıyor.
+
+## In Development
+- Camera support for Web (PR Waiting)
+
+## SEO
+- Third party library ile yapılabilir.
+
+## Captcha
+- HtmlViewer Widget ile yapılabilir.
+- *[Third party library](https://github.com/flutter/flutter/tree/master/packages/integration_test#integration_test)* ile automated test'ler yapılabiliyor.
+
+## Google Ads
+- *[Google Mobile Ads](https://pub.dev/packages/google_mobile_ads)* in Beta.
+
+## TEST
+- *[Google reCaptcha V3](https://pub.dev/packages/g_recaptcha_v3)* kullanılabilir.
+
 ## Export
 - `flutter build web` komutu ile export alınabilir.
 
